@@ -3,6 +3,7 @@
 
 namespace SimpleAI {
 
+//! \brief Класс реализации нейрона
 class Neuron
 {
 public:

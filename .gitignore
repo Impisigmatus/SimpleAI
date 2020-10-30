@@ -1,3 +1,4 @@
 .DS*
 *.user
 build*
+docs*
