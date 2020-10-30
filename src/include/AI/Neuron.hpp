@@ -1,7 +1,7 @@
-#ifndef AI_NEURON_HPP
-#define AI_NEURON_HPP
+#ifndef SAI_NEURON_HPP
+#define SAI_NEURON_HPP
 
-namespace AI {
+namespace SimpleAI {
 
 class Neuron
 {
@@ -9,6 +9,6 @@ public:
 
 };
 
-} // namespace AI
+} // namespace SimpleAI
 
 #endif // AI_NEURON_HPP

@@ -1,9 +1,9 @@
-#ifndef AI_NETWORK_HPP
-#define AI_NETWORK_HPP
+#ifndef SAI_NETWORK_HPP
+#define SAI_NETWORK_HPP
 
 #include <AI/Neuron.hpp>
 
-namespace AI {
+namespace SimpleAI {
 
 class Network
 {
@@ -11,6 +11,6 @@ public:
 
 };
 
-} // namespace AI
+} // namespace SimpleAI
 
-#endif // AI_NETWORK_HPP
+#endif // SIMPLEAI_NETWORK_HPP

@@ -1,5 +1,5 @@
 #include <AI/Neuron.hpp>
 
-namespace AI {
+namespace SimpleAI {
 
-} // namespace AI
+} // namespace SimpleAI

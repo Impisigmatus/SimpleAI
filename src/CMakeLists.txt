@@ -3,10 +3,9 @@ project(Network LANGUAGES CXX)
 file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
-add_executable(${PROJECT_NAME}
+add_library(${PROJECT_NAME}
   ${HEADERS}
   ${SOURCES}
-  main.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
