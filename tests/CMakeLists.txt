@@ -5,12 +5,11 @@ project(SimpleAI_tests LANGUAGES CXX)
 
 find_package(GTest REQUIRED)
 
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
 add_executable(${PROJECT_NAME}
-  ${HEADERS}
   ${SOURCES}
+  main.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

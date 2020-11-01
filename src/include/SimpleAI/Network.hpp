@@ -13,7 +13,7 @@ public:
   //! Конструктор по-умолчанию
   Network() = default;
 
-protected:
+private:
   /*!
    * \brief Метод для расчета слоя
    * \param inputs Список выходных значенинй предыдущего слоя
