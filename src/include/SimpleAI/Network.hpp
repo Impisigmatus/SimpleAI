@@ -35,4 +35,4 @@ private:
 
 } // namespace SimpleAI
 
-#endif // SIMPLEAI_NETWORK_HPP
+#endif // SAI_NETWORK_HPP
