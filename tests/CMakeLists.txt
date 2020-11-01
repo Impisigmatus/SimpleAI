@@ -1,6 +1,3 @@
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 project(SimpleAI_tests LANGUAGES CXX)
 
 find_package(GTest REQUIRED)
