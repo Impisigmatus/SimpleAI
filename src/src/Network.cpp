@@ -4,10 +4,14 @@
 
 namespace SimpleAI {
 
-std::vector<double> Network::execLayer(const std::vector<double>& inputs,
-                                       const std::vector<double>& weights)
+List Network::exec(const List& /*inputs*/) const
 {
-  std::vector<double> outputs(static_cast<size_t>(weights.size() / inputs.size()));
+  return List();
+}
+
+List Network::execLayer(const List& inputs, const List& weights) const
+{
+  List outputs(static_cast<size_t>(weights.size() / inputs.size()));
 
   cblas_dgemm(
     CblasColMajor, CblasNoTrans, CblasNoTrans,

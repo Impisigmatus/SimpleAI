@@ -5,4 +5,6 @@
 TEST(DefaultCase, Test)
 {
   SimpleAI::Network network;
+  auto outputs = network.exec({});
+  EXPECT_TRUE(outputs.empty());
 }
