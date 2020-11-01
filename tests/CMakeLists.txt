@@ -1,6 +1,3 @@
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 project(SimpleAI_tests LANGUAGES CXX)
 
 find_package(GTest REQUIRED)
@@ -19,8 +16,6 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 target_include_directories(${PROJECT_NAME}
-  PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}
   PRIVATE
     ${GTEST_INCLUDE_DIRS}
 )
