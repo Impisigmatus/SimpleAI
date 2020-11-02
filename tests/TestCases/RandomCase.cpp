@@ -91,3 +91,16 @@ TEST(RandomCase, FillRand)
   SimpleAI::Utilities::fillRand(matrix);
   EXPECT_NE(matrix, copy);
 }
+
+TEST(RandomCase, Mutation)
+{
+  SimpleAI::Matrix matrix = {
+    { 0.5, 0.5, 0.5 },
+    { 0.5, 0.5, 0.5 },
+    { 0.5, 0.5, 0.5 }
+  };
+
+  auto result = SimpleAI::Utilities::mutate(matrix, 0.1);
+
+  EXPECT_NE(matrix, result);
+}
