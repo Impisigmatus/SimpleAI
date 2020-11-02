@@ -2,8 +2,14 @@
 
 #include <SimpleAI/Network.hpp>
 
+bool doubleEQ(const double& a, const double& b, const double& delta = 0.000001)
+{
+  return std::abs(a - b) < delta;
+}
+
 TEST(DefaultCase, Test)
 {
+  // Инициализация значений
   SimpleAI::List inputs  = { 1, 0.5 };
   SimpleAI::Matrix weights;
   weights.push_back({
@@ -17,9 +23,13 @@ TEST(DefaultCase, Test)
     4.1, 4.2  // 2 слой 4 нейрон => 2 нейрона 3 слоя
   });
 
+  // Выполнение
   SimpleAI::Network network(weights, [](const double& x) -> double { return x; });
   auto outputs = network.exec(inputs);
 
+  // Проверка
   SimpleAI::List expected = { 25.45, 26.4 };
-  EXPECT_EQ(outputs, expected);
+  ASSERT_EQ(outputs.size(), expected.size());
+  for (size_t i = 0; i < outputs.size(); i++)
+    EXPECT_TRUE(doubleEQ(outputs[i], expected[i]));
 }
