@@ -13,7 +13,5 @@ TEST_F(NetworkF, Valid)
   auto outputs = network.exec(inputs);
 
   // Проверка
-  ASSERT_EQ(outputs.size(), expected.size());
-  for (size_t i = 0; i < outputs.size(); i++)
-    EXPECT_TRUE(doubleEQ(outputs[i], expected[i]));
+  ASSERT_TRUE(listsEquals(outputs, expected));
 }

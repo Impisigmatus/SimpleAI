@@ -11,7 +11,7 @@ public:
   void SetUp() final override;
 
 protected:
-  bool doubleEQ(const double& a, const double& b, const double& delta = 0.000001);
+  bool listsEquals(const SimpleAI::List& first, const SimpleAI::List& second);
 
 protected:
   SimpleAI::Matrix weights;

@@ -14,7 +14,17 @@ void NetworkF::SetUp()
   });
 }
 
-bool NetworkF::doubleEQ(const double& a, const double& b, const double& delta)
+bool NetworkF::listsEquals(const SimpleAI::List& first, const SimpleAI::List& second)
 {
-  return std::abs(a - b) < delta;
+  const auto doubleEquals = [](const double& a, const double& b, const double& delta = 0.000001) {
+    return std::abs(a - b) < delta;
+  };
+
+  if (first.size() != second.size())
+    return false;
+
+  for (size_t i = 0; i < first.size(); i++)
+    if (!doubleEquals(first[i], second[i]))
+      return false;
+  return true;
 }
