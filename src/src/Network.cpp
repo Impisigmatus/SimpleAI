@@ -4,9 +4,17 @@
 
 namespace SimpleAI {
 
-List Network::exec(const List& /*inputs*/) const
+Network::Network(const Matrix& weights, const Activation& foo)
+  : activation (foo)
+  , mWeights   (weights)
+{}
+
+List Network::exec(const List& inputs) const
 {
-  return List();
+  List layer = inputs;
+  for (const auto& weights : mWeights)
+    layer = normalize(execLayer(layer, weights));
+  return layer;
 }
 
 List Network::execLayer(const List& inputs, const List& weights) const
@@ -23,6 +31,14 @@ List Network::execLayer(const List& inputs, const List& weights) const
     outputs.data(), static_cast<int>(outputs.size())
   );
 
+  return outputs;
+}
+
+List Network::normalize(const List& layer) const
+{
+  List outputs;
+  for (const auto& output : layer)
+    outputs.push_back(activation(output));
   return outputs;
 }
 

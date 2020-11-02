@@ -1,19 +1,27 @@
 #ifndef SAI_NETWORK_HPP
 #define SAI_NETWORK_HPP
 
+#include <functional>
 #include <vector>
 
 //! \brief Пространство имен библиотеки SimpleAI
 namespace SimpleAI {
 
-using List = std::vector<double>;
+using List       = std::vector<double>;
+using Matrix     = std::vector<List>;
+using Activation = std::function<double(const double& x)>;
 
 //! \brief Класс для работы нейросети
 class Network
 {
 public:
-  //! Конструктор по-умолчанию
-  Network() = default;
+  /*!
+   * \brief Конструктор с аргументами весов и функции активации
+   * \details Создает нейросеть по готовой матрице весов
+   * \param weights Весовыве коэффициенты
+   * \param foo Функция активации
+   */
+  Network(const Matrix& weights, const Activation& foo);
 
   /*!
    * \brief Производит вычисление весов выходного слоя
@@ -26,10 +34,27 @@ private:
   /*!
    * \brief Метод для расчета слоя
    * \param inputs Список выходных значенинй предыдущего слоя
-   * \param weights Весовыве коэффициенты
+   * \param weights Весовые коэффициенты
    * \return SimpleAI::List Список выходных значений слоя
    */
   List execLayer(const List& inputs, const List& weights) const;
+
+  /*!
+   * \brief Пропускает все значения слоя через функцию активации
+   * \param layer Список выходных значений слоя
+   * \return SimpleAI::List Список нормализованных функцией активации значений
+   */
+  List normalize(const List& layer) const;
+
+  /*!
+   * \brief Функция активации
+   * \details Имеет вид double(const double& x), это может быть использовано
+   * как лямбда функция вида [](const double& x) -> double {}
+   */
+  const Activation activation;
+
+private:
+  Matrix mWeights; //!< Весовые коэффициенты нейросети
 
 };
 
