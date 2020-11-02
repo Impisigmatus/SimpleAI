@@ -16,6 +16,9 @@ protected:
 protected:
   SimpleAI::Matrix weights;
 
+private:
+  const double M_ACCURACY = 0.0000001;
+
 };
 
 #endif // SAI_TESTS_NETWORK_F_HPP

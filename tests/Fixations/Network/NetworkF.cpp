@@ -16,15 +16,12 @@ void NetworkF::SetUp()
 
 bool NetworkF::listsEquals(const SimpleAI::List& first, const SimpleAI::List& second)
 {
-  const auto doubleEquals = [](const double& a, const double& b, const double& delta = 0.000001) {
-    return std::abs(a - b) < delta;
-  };
-
   if (first.size() != second.size())
     return false;
 
   for (size_t i = 0; i < first.size(); i++)
-    if (!doubleEquals(first[i], second[i]))
+    if (!(std::abs(first[i] - second[i]) < M_ACCURACY))
       return false;
+
   return true;
 }
