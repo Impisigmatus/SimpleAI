@@ -9,7 +9,7 @@ namespace SimpleAI {
 class Network : public INetwork
 {
 public:
-  Network(const Matrix& weights, const Activation& foo);
+  Network(const Matrix& weights, const Activation& activation);
 
 private:
   List multiply(const List& inputs, const List& weights) const override;

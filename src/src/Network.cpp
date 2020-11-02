@@ -4,8 +4,8 @@
 
 namespace SimpleAI {
 
-Network::Network(const Matrix& weights, const Activation& foo)
-  : INetwork (weights, foo)
+Network::Network(const Matrix& weights, const Activation& activation)
+  : INetwork (weights, activation)
 {}
 
 List Network::multiply(const List& inputs, const List& weights) const

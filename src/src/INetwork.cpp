@@ -2,8 +2,8 @@
 
 namespace SimpleAI {
 
-INetwork::INetwork(const Matrix& weights, const Activation& foo)
-  : activation    (foo)
+INetwork::INetwork(const Matrix& weights, const Activation& activation)
+  : mActivation   (activation)
   , mWeightMatrix (weights)
 {}
 
@@ -14,7 +14,7 @@ List INetwork::exec(const List& inputs) const
   {
     layer = multiply(layer, weightLayer);
     for (auto& output : layer)
-      output = activation(output);
+      output = mActivation(output);
   }
   return layer;
 }

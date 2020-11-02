@@ -21,7 +21,7 @@ public:
    * \param weights Весовыве коэффициенты
    * \param foo Функция активации
    */
-  INetwork(const Matrix& weights, const Activation& foo);
+  INetwork(const Matrix& weights, const Activation& activation);
 
   //! \brief Деструктор по-умолчанию
   virtual ~INetwork() = default;
@@ -47,7 +47,7 @@ private:
    * \details Имеет вид double(const double& x), это может быть использовано
    * как лямбда функция вида [](const double& x) -> double {}
    */
-  const Activation activation;
+  const Activation mActivation;
 
 private:
   Matrix mWeightMatrix; //!< Матрица весовывх коэффициентов нейросети
