@@ -1,9 +1,17 @@
 #include <SimpleAI/Utilities.hpp>
 
+#include <algorithm>
+
 namespace SimpleAI {
 
 std::random_device Utilities::mRandom;
 std::mt19937 Utilities::mGenerator = std::mt19937(mRandom());
+
+void Utilities::fillRand(Matrix& matrix)
+{
+  for (auto& list : matrix)
+    std::generate(list.begin(), list.end(), []() { return rand(); });
+}
 
 double Utilities::rand(const double& begin, const double& end)
 {

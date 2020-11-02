@@ -1,6 +1,8 @@
 #ifndef SAI_UTILITIES_HPP
 #define SAI_UTILITIES_HPP
 
+#include <SimpleAI/Concepts.hpp>
+
 #include <random>
 
 namespace SimpleAI {
@@ -9,6 +11,8 @@ namespace SimpleAI {
 class Utilities
 {
 public:
+  static void fillRand(Matrix& matrix);
+
   static double rand(const double& begin = 0, const double& end = 1);
   static int    rand(const int&    begin,     const int&    end);
 
