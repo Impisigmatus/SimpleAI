@@ -12,7 +12,7 @@ List INetwork::exec(const List& inputs) const
   List layer = inputs;
   for (const auto& weightLayer : mWeightMatrix)
   {
-    layer = execLayer(layer, weightLayer);
+    layer = multiply(layer, weightLayer);
     for (auto& output : layer)
       output = activation(output);
   }

@@ -35,12 +35,12 @@ public:
 
 private:
   /*!
-   * \brief Метод для расчета слоя
+   * \brief Метод для перемножения выходных значенинй предыдущего слоя на весовые коэффициенты
    * \param inputs Список выходных значенинй предыдущего слоя
    * \param weights Весовые коэффициенты
    * \return SimpleAI::List Список выходных значений слоя
    */
-  virtual List execLayer(const List& inputs, const List& weights) const = 0;
+  virtual List multiply(const List& inputs, const List& weights) const = 0;
 
   /*!
    * \brief Функция активации

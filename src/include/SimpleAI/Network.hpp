@@ -12,7 +12,7 @@ public:
   Network(const Matrix& weights, const Activation& foo);
 
 private:
-  List execLayer(const List& inputs, const List& weights) const override;
+  List multiply(const List& inputs, const List& weights) const override;
 
 };
 

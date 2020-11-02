@@ -8,7 +8,7 @@ Network::Network(const Matrix& weights, const Activation& foo)
   : INetwork (weights, foo)
 {}
 
-List Network::execLayer(const List& inputs, const List& weights) const
+List Network::multiply(const List& inputs, const List& weights) const
 {
   const int inputSize  = static_cast<int>(inputs.size());
   const int outputSize = static_cast<int>(weights.size()) / inputSize;
