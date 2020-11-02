@@ -19,4 +19,9 @@ List INetwork::exec(const List& inputs) const
   return layer;
 }
 
+Matrix INetwork::getWeights() const
+{
+  return mWeightMatrix;
+}
+
 } // namespace SimpleAI
