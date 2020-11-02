@@ -40,13 +40,6 @@ private:
   List execLayer(const List& inputs, const List& weights) const;
 
   /*!
-   * \brief Пропускает все значения слоя через функцию активации
-   * \param layer Список выходных значений слоя
-   * \return SimpleAI::List Список нормализованных функцией активации значений
-   */
-  List normalize(const List& layer) const;
-
-  /*!
    * \brief Функция активации
    * \details Имеет вид double(const double& x), это может быть использовано
    * как лямбда функция вида [](const double& x) -> double {}
@@ -54,7 +47,7 @@ private:
   const Activation activation;
 
 private:
-  Matrix mWeights; //!< Весовые коэффициенты нейросети
+  Matrix mWeightMatrix; //!< Матрица весовывх коэффициентов нейросети
 
 };
 

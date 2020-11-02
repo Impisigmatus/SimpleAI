@@ -5,40 +5,39 @@
 namespace SimpleAI {
 
 Network::Network(const Matrix& weights, const Activation& foo)
-  : activation (foo)
-  , mWeights   (weights)
+  : activation    (foo)
+  , mWeightMatrix (weights)
 {}
 
 List Network::exec(const List& inputs) const
 {
   List layer = inputs;
-  for (const auto& weights : mWeights)
-    layer = normalize(execLayer(layer, weights));
+  for (const auto& weightLayer : mWeightMatrix)
+  {
+    layer = execLayer(layer, weightLayer);
+    for (auto& output : layer)
+      output = activation(output);
+  }
   return layer;
 }
 
 List Network::execLayer(const List& inputs, const List& weights) const
 {
-  List outputs(static_cast<size_t>(weights.size() / inputs.size()));
+  const int inputSize  = static_cast<int>(inputs.size());
+  const int outputSize = static_cast<int>(weights.size()) / inputSize;
+
+  List outputs(static_cast<size_t>(outputSize));
 
   cblas_dgemm(
     CblasColMajor, CblasNoTrans, CblasNoTrans,
-    static_cast<int>(outputs.size()), 1, static_cast<int>(inputs.size()),
+    outputSize, 1,  inputSize,
     1,
-    weights.data(), static_cast<int>(outputs.size()),
-    inputs.data(),  static_cast<int>(inputs.size()),
+    weights.data(), outputSize,
+    inputs.data(),  inputSize,
     0,
-    outputs.data(), static_cast<int>(outputs.size())
+    outputs.data(), outputSize
   );
 
-  return outputs;
-}
-
-List Network::normalize(const List& layer) const
-{
-  List outputs;
-  for (const auto& output : layer)
-    outputs.push_back(activation(output));
   return outputs;
 }
 
