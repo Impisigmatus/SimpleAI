@@ -17,3 +17,8 @@ option(SAI_BUILD_TEST "Building test" OFF)
 if (SAI_BUILD_TEST)
   add_subdirectory(tests)
 endif (SAI_BUILD_TEST)
+
+option(SAI_BUILD_EXAMPLE "Building example" OFF)
+if (SAI_BUILD_EXAMPLE)
+  add_subdirectory(example)
+endif (SAI_BUILD_EXAMPLE)

@@ -1,9 +1,8 @@
-#include <gtest/gtest.h>
+#include <Teacher.hpp>
 
-#include <SimpleAI/Teacher.hpp>
 #include <SimpleAI/Utilities.hpp>
 
-TEST(TeacherCase, XOR)
+int main()
 {
   SimpleAI::Matrix weights;
   weights.push_back({
@@ -18,6 +17,6 @@ TEST(TeacherCase, XOR)
   });
   SimpleAI::Utilities::fillRand(weights);
 
-  SimpleAI::Teacher teacher(10000, 20, 0.1);
+  Teacher teacher(100000, 50, 0.1);
   auto network = teacher.teach(weights);
 }
