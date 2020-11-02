@@ -28,6 +28,12 @@ public:
    */
   List exec(const List& inputs) const;
 
+  /*!
+   * \brief Возвращает матрицу весовых коэффициентов
+   * \return SimpleAI::Matrix Матрица весовых коэффициентов
+   */
+  Matrix getWeights() const;
+
 private:
   /*!
    * \brief Метод для перемножения выходных значенинй предыдущего слоя на весовые коэффициенты
