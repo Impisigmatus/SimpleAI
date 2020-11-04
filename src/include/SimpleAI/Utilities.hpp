@@ -12,6 +12,22 @@ class Utilities
 {
 public:
   /*!
+   * \brief Записывает матрицу весов в файл
+   * \param weights Весовые коэффициенты
+   * \param path Путь до файла
+   * \return Возвращает true в случае успеха, иначе false
+   */
+  static bool serialize(const Matrix& weights, const std::string& path);
+
+  /*!
+   * \brief Читает матрицу весов из файла
+   * \details Если не удалось прочитать матрицу весов, то вернет пустую матрицу
+   * \param path Путь до файла
+   * \return SimpleAI::Matrix Прочитанная матрица весов
+   */
+  static Matrix deserialize(const std::string& path);
+
+  /*!
    * \brief Производит случайные мутации значений матрицы
    * \details Может увеличить, уменьшить или оставить без изменений значение каждого элемента матрицы
    * \param matrix Исходная матрица

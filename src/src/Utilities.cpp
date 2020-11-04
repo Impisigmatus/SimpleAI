@@ -1,11 +1,59 @@
 #include <SimpleAI/Utilities.hpp>
 
 #include <algorithm>
+#include <fstream>
+#include <sstream>
 
 namespace SimpleAI {
 
 std::random_device Utilities::mRandom;
 std::mt19937 Utilities::mGenerator = std::mt19937(mRandom());
+
+bool Utilities::serialize(const Matrix& weights, const std::string& path)
+{
+  std::ofstream fout(path);
+  if (!fout.is_open())
+    return false;
+
+  for (const auto& layer : weights)
+  {
+    for (const auto& weight : layer)
+      fout << weight << ' ';
+    fout << std::endl;
+  }
+
+  fout.close();
+  return true;
+}
+
+Matrix Utilities::deserialize(const std::string& path)
+{
+  std::ifstream fin(path);
+  if (!fin.is_open())
+    return Matrix();
+
+  Matrix weights;
+
+  std::string buff;
+  while (std::getline(fin, buff))
+  {
+    List layer;
+
+    if (buff.back() == ' ')
+      buff.pop_back();
+    std::stringstream stream(buff);
+    while (!stream.eof())
+    {
+      double weight;
+      stream >> weight;
+      layer.push_back(weight);
+    }
+    weights.push_back(layer);
+  }
+
+  fin.close();
+  return weights;
+}
 
 Matrix Utilities::mutate(Matrix matrix, const double& step)
 {
