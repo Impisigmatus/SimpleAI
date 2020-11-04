@@ -1,5 +1,7 @@
 #include <ITeacher.hpp>
 
+#include <SimpleAI/Network.hpp>
+
 #include <iostream>
 
 ITeacher::ITeacher(const size_t& iterations, const size_t& population, const double& step)
@@ -11,6 +13,8 @@ ITeacher::ITeacher(const size_t& iterations, const size_t& population, const dou
 std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
 {
   Student best;
+  best.network.reset(new Network(weights, mActivation));
+  best.grade = grading(best.network);
 
   for (size_t i = 0; i < M_ITERATIONS; i++)
   {

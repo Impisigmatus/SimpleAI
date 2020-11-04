@@ -28,12 +28,19 @@ Students Teacher::getPopulation(const Matrix& weights) const
   for (auto& student : population)
   {
     student.network.reset(new Network(Utilities::mutate(weights, M_STEP), mActivation));
-    for (size_t i = 0; i < mInputs.size(); i++)
-      student.grade += grading(student.network->exec(mInputs[i]), mAnswers[i]);
-    student.grade /= mInputs.size();
+    student.grade = grading(student.network);
   }
 
   return population;
+}
+
+double Teacher::grading(const std::shared_ptr<INetwork>& network) const
+{
+  double grade = 0;
+  for (size_t i = 0; i < mInputs.size(); i++)
+    grade += grading(network->exec(mInputs[i]), mAnswers[i]);
+  grade /= mInputs.size();
+  return grade;
 }
 
 void Teacher::log(const Student& student) const

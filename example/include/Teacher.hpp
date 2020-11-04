@@ -10,6 +10,7 @@ public:
 
 private:
   Students getPopulation(const Matrix& weights) const override;
+  double grading(const std::shared_ptr<INetwork>& network) const override;
   void log(const Student& student) const override;
 
   double grading(const List& outputs, const size_t& answer) const;
