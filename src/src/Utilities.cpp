@@ -11,7 +11,7 @@ std::mt19937 Utilities::mGenerator = std::mt19937(mRandom());
 
 bool Utilities::serialize(const Matrix& weights, const std::string& path)
 {
-  std::ofstream fout(path, std::ios::binary);
+  std::ofstream fout(path);
   if (!fout.is_open())
     return false;
 
@@ -28,8 +28,7 @@ bool Utilities::serialize(const Matrix& weights, const std::string& path)
 
 Matrix Utilities::deserialize(const std::string& path)
 {
-  std::ifstream fin;
-  fin.open(path);
+  std::ifstream fin(path);
   if (!fin.is_open())
     return Matrix();
 
