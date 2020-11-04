@@ -11,6 +11,9 @@ namespace SimpleAI {
 class Utilities
 {
 public:
+  static bool   serialize(const Matrix& weights, const std::string& path);
+  static Matrix deserialize(const std::string& path);
+
   /*!
    * \brief Производит случайные мутации значений матрицы
    * \details Может увеличить, уменьшить или оставить без изменений значение каждого элемента матрицы
