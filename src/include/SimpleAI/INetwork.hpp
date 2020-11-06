@@ -1,10 +1,12 @@
 #ifndef SAI_INETWORK_HPP
 #define SAI_INETWORK_HPP
 
-#include <SimpleAI/Domains/Concepts.hpp>
+#include <SimpleAI/Domains/Matrix.hpp>
 
 //! \brief Пространство имен библиотеки SimpleAI
 namespace SimpleAI {
+
+using Activation = std::function<double(const double& x)>;
 
 //! \brief Интерфейс для работы нейросети
 class INetwork

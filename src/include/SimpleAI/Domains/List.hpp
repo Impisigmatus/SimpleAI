@@ -1,7 +1,6 @@
-#ifndef SAI_CONCEPTS_HPP
-#define SAI_CONCEPTS_HPP
+#ifndef SAI_LIST_HPP
+#define SAI_LIST_HPP
 
-#include <functional>
 #include <vector>
 
 namespace SimpleAI {
@@ -18,9 +17,6 @@ public:
 
 };
 
-using Matrix = std::vector<List>;
-using Activation = std::function<double(const double& x)>;
-
 } // namespace SimpleAI
 
-#endif // SAI_CONCEPTS_HPP
+#endif // SAI_LIST_HPP
