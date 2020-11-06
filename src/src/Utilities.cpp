@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <fstream>
-#include <sstream>
 
 namespace SimpleAI {
 
@@ -15,9 +14,7 @@ bool Utilities::serialize(const Matrix& weights, const std::string& path)
   if (!fout.is_open())
     return false;
 
-  for (const auto& layer : weights)
-    fout << layer;
-
+  fout << weights;
   fout.close();
   return true;
 }
@@ -29,16 +26,7 @@ Matrix Utilities::deserialize(const std::string& path)
     return Matrix();
 
   Matrix weights;
-
-  std::string buff;
-  while (std::getline(fin, buff))
-  {
-    std::stringstream stream(buff);
-    List layer;
-    stream >> layer;
-    weights.push_back(layer);
-  }
-
+  fin >> weights;
   fin.close();
   return weights;
 }
