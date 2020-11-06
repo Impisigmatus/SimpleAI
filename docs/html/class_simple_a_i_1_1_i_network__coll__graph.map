@@ -1,0 +1,5 @@
+<map id="SimpleAI::INetwork" name="SimpleAI::INetwork">
+<area shape="rect" id="node1" title="Интерфейс для работы нейросети" alt="" coords="5,167,140,192"/>
+<area shape="rect" id="node2" href="$class_simple_a_i_1_1_matrix.html" title="Класс матрицы" alt="" coords="13,80,132,105"/>
+<area shape="rect" id="node3" title=" " alt="" coords="9,5,136,31"/>
+</map>

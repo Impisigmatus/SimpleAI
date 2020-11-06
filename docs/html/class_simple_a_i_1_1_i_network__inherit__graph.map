@@ -1,0 +1,4 @@
+<map id="SimpleAI::INetwork" name="SimpleAI::INetwork">
+<area shape="rect" id="node1" title="Интерфейс для работы нейросети" alt="" coords="5,5,140,31"/>
+<area shape="rect" id="node2" href="$class_simple_a_i_1_1_network.html" title="Реализация для работы нейросети на базе библиотеки OpenBLAS." alt="" coords="7,79,138,104"/>
+</map>

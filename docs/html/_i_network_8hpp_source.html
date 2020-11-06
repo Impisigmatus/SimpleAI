@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SimpleAI: Исходный файл src/include/SimpleAI/INetwork.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SimpleAI
+   </div>
+   <div id="projectbrief">Реализация простейшей нейросети</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_i_network_8hpp_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">INetwork.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SAI_INETWORK_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SAI_INETWORK_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SimpleAI/Domains/Matrix.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_simple_a_i.html">SimpleAI</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespace_simple_a_i.html#a63207c092a4be3a713a59547dd629173">    9</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_simple_a_i.html#a63207c092a4be3a713a59547dd629173">Activation</a> = std::function&lt;double(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x)&gt;;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_simple_a_i_1_1_i_network.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_simple_a_i_1_1_i_network.html">INetwork</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_simple_a_i_1_1_i_network.html#a7e80ceb607d9db10d2a5165d604ac9ab">INetwork</a>(<span class="keyword">const</span> <a class="code" href="class_simple_a_i_1_1_matrix.html">Matrix</a>&amp; weights, <span class="keyword">const</span> <a class="code" href="namespace_simple_a_i.html#a63207c092a4be3a713a59547dd629173">Activation</a>&amp; activation);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="class_simple_a_i_1_1_i_network.html#ad6a339b325049c74c570ead59a948eb9">~INetwork</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="class_simple_a_i_1_1_list.html">List</a> <a class="code" href="class_simple_a_i_1_1_i_network.html#af8c42096186c21fe389f8bc9c0ee1a1f">exec</a>(<span class="keyword">const</span> <a class="code" href="class_simple_a_i_1_1_list.html">List</a>&amp; inputs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_simple_a_i_1_1_matrix.html">Matrix</a> <a class="code" href="class_simple_a_i_1_1_i_network.html#a19f952628923c82781934ffb21ef0ecf">getWeights</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="class_simple_a_i_1_1_list.html">List</a> <a class="code" href="class_simple_a_i_1_1_i_network.html#ab0a21c7360b80098301ce5795fd5e714">multiply</a>(<span class="keyword">const</span> <a class="code" href="class_simple_a_i_1_1_list.html">List</a>&amp; inputs, <span class="keyword">const</span> <a class="code" href="class_simple_a_i_1_1_list.html">List</a>&amp; weights) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_simple_a_i_1_1_i_network.html#ab8d010102b00a0975d0b786f30ff0d93">   53</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="namespace_simple_a_i.html#a63207c092a4be3a713a59547dd629173">Activation</a> <a class="code" href="class_simple_a_i_1_1_i_network.html#ab8d010102b00a0975d0b786f30ff0d93">mActivation</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_simple_a_i_1_1_i_network.html#af0eb1a8c43fe2e6a640a9bc8b385062a">   56</a></span>&#160;  <a class="code" href="class_simple_a_i_1_1_matrix.html">Matrix</a> <a class="code" href="class_simple_a_i_1_1_i_network.html#af0eb1a8c43fe2e6a640a9bc8b385062a">mWeightMatrix</a>; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace SimpleAI</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // SAI_INETWORK_HPP</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_ad6a339b325049c74c570ead59a948eb9"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#ad6a339b325049c74c570ead59a948eb9">SimpleAI::INetwork::~INetwork</a></div><div class="ttdeci">virtual ~INetwork()=default</div><div class="ttdoc">Деструктор по-умолчанию</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html">SimpleAI::INetwork</a></div><div class="ttdoc">Интерфейс для работы нейросети</div><div class="ttdef"><b>Definition:</b> INetwork.hpp:12</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_af0eb1a8c43fe2e6a640a9bc8b385062a"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#af0eb1a8c43fe2e6a640a9bc8b385062a">SimpleAI::INetwork::mWeightMatrix</a></div><div class="ttdeci">Matrix mWeightMatrix</div><div class="ttdoc">Матрица весовывх коэффициентов нейросети</div><div class="ttdef"><b>Definition:</b> INetwork.hpp:56</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_matrix_html"><div class="ttname"><a href="class_simple_a_i_1_1_matrix.html">SimpleAI::Matrix</a></div><div class="ttdoc">Класс матрицы</div><div class="ttdef"><b>Definition:</b> Matrix.hpp:9</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_ab8d010102b00a0975d0b786f30ff0d93"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#ab8d010102b00a0975d0b786f30ff0d93">SimpleAI::INetwork::mActivation</a></div><div class="ttdeci">const Activation mActivation</div><div class="ttdoc">Функция активации</div><div class="ttdef"><b>Definition:</b> INetwork.hpp:53</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_a7e80ceb607d9db10d2a5165d604ac9ab"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#a7e80ceb607d9db10d2a5165d604ac9ab">SimpleAI::INetwork::INetwork</a></div><div class="ttdeci">INetwork(const Matrix &amp;weights, const Activation &amp;activation)</div><div class="ttdoc">Конструктор с аргументами весов и функции активации</div><div class="ttdef"><b>Definition:</b> INetwork.cpp:5</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_a19f952628923c82781934ffb21ef0ecf"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#a19f952628923c82781934ffb21ef0ecf">SimpleAI::INetwork::getWeights</a></div><div class="ttdeci">Matrix getWeights() const</div><div class="ttdoc">Возвращает матрицу весовых коэффициентов</div><div class="ttdef"><b>Definition:</b> INetwork.cpp:22</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_list_html"><div class="ttname"><a href="class_simple_a_i_1_1_list.html">SimpleAI::List</a></div><div class="ttdoc">Список вещественных чисел</div><div class="ttdef"><b>Definition:</b> List.hpp:9</div></div>
+<div class="ttc" id="anamespace_simple_a_i_html"><div class="ttname"><a href="namespace_simple_a_i.html">SimpleAI</a></div><div class="ttdoc">Пространство имен библиотеки SimpleAI.</div><div class="ttdef"><b>Definition:</b> List.hpp:6</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_af8c42096186c21fe389f8bc9c0ee1a1f"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#af8c42096186c21fe389f8bc9c0ee1a1f">SimpleAI::INetwork::exec</a></div><div class="ttdeci">List exec(const List &amp;inputs) const</div><div class="ttdoc">Производит вычисление весов выходного слоя</div><div class="ttdef"><b>Definition:</b> INetwork.cpp:10</div></div>
+<div class="ttc" id="anamespace_simple_a_i_html_a63207c092a4be3a713a59547dd629173"><div class="ttname"><a href="namespace_simple_a_i.html#a63207c092a4be3a713a59547dd629173">SimpleAI::Activation</a></div><div class="ttdeci">std::function&lt; double(const double &amp;x)&gt; Activation</div><div class="ttdef"><b>Definition:</b> INetwork.hpp:9</div></div>
+<div class="ttc" id="aclass_simple_a_i_1_1_i_network_html_ab0a21c7360b80098301ce5795fd5e714"><div class="ttname"><a href="class_simple_a_i_1_1_i_network.html#ab0a21c7360b80098301ce5795fd5e714">SimpleAI::INetwork::multiply</a></div><div class="ttdeci">virtual List multiply(const List &amp;inputs, const List &amp;weights) const =0</div><div class="ttdoc">Метод для перемножения выходных значенинй предыдущего слоя на весовые коэффициенты</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li><li class="navelem"><a class="el" href="dir_fd2286feb1beba7b39d1d3f3c8ecdd41.html">SimpleAI</a></li><li class="navelem"><b>INetwork.hpp</b></li>
+    <li class="footer">Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>
