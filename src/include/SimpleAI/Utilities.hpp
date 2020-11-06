@@ -1,7 +1,7 @@
 #ifndef SAI_UTILITIES_HPP
 #define SAI_UTILITIES_HPP
 
-#include <SimpleAI/Concepts.hpp>
+#include <SimpleAI/Domains/Concepts.hpp>
 
 #include <random>
 

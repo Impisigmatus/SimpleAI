@@ -16,11 +16,7 @@ bool Utilities::serialize(const Matrix& weights, const std::string& path)
     return false;
 
   for (const auto& layer : weights)
-  {
-    for (const auto& weight : layer)
-      fout << weight << ' ';
-    fout << std::endl;
-  }
+    fout << layer;
 
   fout.close();
   return true;
@@ -37,17 +33,9 @@ Matrix Utilities::deserialize(const std::string& path)
   std::string buff;
   while (std::getline(fin, buff))
   {
-    List layer;
-
-    if (buff.back() == ' ')
-      buff.pop_back();
     std::stringstream stream(buff);
-    while (!stream.eof())
-    {
-      double weight;
-      stream >> weight;
-      layer.push_back(weight);
-    }
+    List layer;
+    stream >> layer;
     weights.push_back(layer);
   }
 

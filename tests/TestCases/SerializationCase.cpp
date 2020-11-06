@@ -2,6 +2,8 @@
 
 #include <SimpleAI/Utilities.hpp>
 
+const std::string PATH = "serialization_test_network";
+
 TEST(SerializationCase, Serialize)
 {
   SimpleAI::Matrix weights;
@@ -16,12 +18,12 @@ TEST(SerializationCase, Serialize)
     2.7, 2.8
   });
 
-  EXPECT_TRUE(SimpleAI::Utilities::serialize(weights, "network.txt"));
+  EXPECT_TRUE(SimpleAI::Utilities::serialize(weights, PATH));
 }
 
 TEST(SerializationCase, Deserialize)
 {
-  SimpleAI::Matrix weights = SimpleAI::Utilities::deserialize("network.txt");
+  SimpleAI::Matrix weights = SimpleAI::Utilities::deserialize(PATH);
   SimpleAI::Matrix expected;
   expected.push_back({
     1.1, 1.2, 1.3, 1.4,

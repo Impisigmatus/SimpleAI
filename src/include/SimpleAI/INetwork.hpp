@@ -1,7 +1,7 @@
 #ifndef SAI_INETWORK_HPP
 #define SAI_INETWORK_HPP
 
-#include <SimpleAI/Concepts.hpp>
+#include <SimpleAI/Domains/Concepts.hpp>
 
 //! \brief Пространство имен библиотеки SimpleAI
 namespace SimpleAI {
