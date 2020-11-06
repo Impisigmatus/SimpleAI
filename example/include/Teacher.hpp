@@ -14,6 +14,7 @@ private:
   void log(const Student& student) const override;
 
   double grading(const List& outputs, const size_t& answer) const;
+  Matrix mutate (Matrix matrix, const double& step) const;
 
 private:
   Matrix              mInputs;

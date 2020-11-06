@@ -31,37 +31,6 @@ Matrix Utilities::deserialize(const std::string& path)
   return weights;
 }
 
-Matrix Utilities::mutate(Matrix matrix, const double& step)
-{
-  const auto shift = [](double& weight, const double& step) {
-    weight += step;
-    if (weight > 1)
-      weight = 1;
-    if (weight < 0)
-      weight = 0;
-  };
-
-  for (auto& list : matrix)
-  {
-    for (auto& weight : list)
-    {
-      switch (rand(1, 3))
-      {
-        case 1:
-          shift(weight, step);
-          break;
-        case 2:
-          shift(weight, -step);
-          break;
-        default:
-          break;
-      }
-    }
-  }
-
-  return matrix;
-}
-
 void Utilities::fillRand(Matrix& matrix)
 {
   for (auto& list : matrix)
