@@ -27,7 +27,7 @@ Students Teacher::getPopulation(const Matrix& weights) const
 
   for (auto& student : population)
   {
-    student.network.reset(new Network(Utilities::mutate(weights, M_STEP), mActivation));
+    student.network.reset(new Network(mutate(weights, M_STEP), mActivation));
     student.grade = grading(student.network);
   }
 
@@ -75,4 +75,35 @@ double Teacher::grading(const List& outputs, const size_t& answer) const
   if (sum == 0.0)
     return 0;
   return outputs[answer]/sum;
+}
+
+Matrix Teacher::mutate(Matrix matrix, const double& step) const
+{
+  const auto shift = [](double& weight, const double& step) {
+    weight += step;
+    if (weight > 1)
+      weight = 1;
+    if (weight < 0)
+      weight = 0;
+  };
+
+  for (auto& list : matrix)
+  {
+    for (auto& weight : list)
+    {
+      switch (Utilities::rand(1, 3))
+      {
+        case 1:
+          shift(weight, step);
+          break;
+        case 2:
+          shift(weight, -step);
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  return matrix;
 }

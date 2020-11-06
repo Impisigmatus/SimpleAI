@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <fstream>
-#include <sstream>
 
 namespace SimpleAI {
 
@@ -15,13 +14,7 @@ bool Utilities::serialize(const Matrix& weights, const std::string& path)
   if (!fout.is_open())
     return false;
 
-  for (const auto& layer : weights)
-  {
-    for (const auto& weight : layer)
-      fout << weight << ' ';
-    fout << std::endl;
-  }
-
+  fout << weights;
   fout.close();
   return true;
 }
@@ -33,52 +26,9 @@ Matrix Utilities::deserialize(const std::string& path)
     return Matrix();
 
   Matrix weights;
-
-  std::string buff;
-  while (std::getline(fin, buff))
-  {
-    List layer;
-
-    if (buff.back() == ' ')
-      buff.pop_back();
-    std::stringstream stream(buff);
-    while (!stream.eof())
-    {
-      double weight;
-      stream >> weight;
-      layer.push_back(weight);
-    }
-    weights.push_back(layer);
-  }
-
+  fin >> weights;
   fin.close();
   return weights;
-}
-
-Matrix Utilities::mutate(Matrix matrix, const double& step)
-{
-  const auto shift = [](double& weight, const double& step) {
-    weight += step;
-    if (weight > 1)
-      weight = 1;
-    if (weight < 0)
-      weight = 0;
-  };
-
-  for (auto& list : matrix)
-    for (auto& weight : list)
-      switch (rand(1, 3))
-      {
-        case 1:
-          shift(weight, step);
-          break;
-        case 2:
-          shift(weight, -step);
-          break;
-        default:
-          break;
-      }
-  return matrix;
 }
 
 void Utilities::fillRand(Matrix& matrix)
@@ -89,14 +39,14 @@ void Utilities::fillRand(Matrix& matrix)
 
 double Utilities::rand(const double& begin, const double& end)
 {
-  std::uniform_real_distribution<double> uid(begin, end);
-  return uid(mGenerator);
+  std::uniform_real_distribution<double> distribution(begin, end);
+  return distribution(mGenerator);
 }
 
 int Utilities::rand(const int& begin, const int& end)
 {
-  std::uniform_int_distribution<int> uid(begin, end);
-  return uid(mGenerator);
+  std::uniform_int_distribution<int> distribution(begin, end);
+  return distribution(mGenerator);
 }
 
 } // namespace SimpleAI

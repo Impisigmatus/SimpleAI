@@ -4,8 +4,8 @@
 
 int main()
 {
-  const std::string path = "weights";
-  SimpleAI::Matrix weights = SimpleAI::Utilities::deserialize(path);
+  const std::string PATH   = "example_network";
+  SimpleAI::Matrix weights = SimpleAI::Utilities::deserialize(PATH);
   if (weights.empty())
   {
     weights.push_back({
@@ -23,5 +23,5 @@ int main()
 
   Teacher teacher(10000, 30, 0.1);
   auto network = teacher.teach(weights);
-  SimpleAI::Utilities::serialize(network->getWeights(), path);
+  SimpleAI::Utilities::serialize(network->getWeights(), PATH);
 }

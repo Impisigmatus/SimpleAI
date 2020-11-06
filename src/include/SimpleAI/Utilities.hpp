@@ -1,7 +1,7 @@
 #ifndef SAI_UTILITIES_HPP
 #define SAI_UTILITIES_HPP
 
-#include <SimpleAI/Concepts.hpp>
+#include <SimpleAI/Domains/Matrix.hpp>
 
 #include <random>
 
@@ -26,15 +26,6 @@ public:
    * \return SimpleAI::Matrix Прочитанная матрица весов
    */
   static Matrix deserialize(const std::string& path);
-
-  /*!
-   * \brief Производит случайные мутации значений матрицы
-   * \details Может увеличить, уменьшить или оставить без изменений значение каждого элемента матрицы
-   * \param matrix Исходная матрица
-   * \param step Шаг мутации
-   * \return SimpleAI::Matrix Мутировавшая матрица
-   */
-  static Matrix mutate(Matrix matrix, const double& step);
 
   /*!
    * \brief Заполняет случайными занчениями матрицу
