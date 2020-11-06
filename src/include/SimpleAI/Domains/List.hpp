@@ -12,8 +12,8 @@ public:
   List(const size_t& size);
   List(const std::initializer_list<double>& list);
 
-  friend std::ostream& operator<<(std::ostream& stream, const List& list);
   friend std::istream& operator>>(std::istream& stream, List& list);
+  friend std::ostream& operator<<(std::ostream& stream, const List& list);
 
 };
 
