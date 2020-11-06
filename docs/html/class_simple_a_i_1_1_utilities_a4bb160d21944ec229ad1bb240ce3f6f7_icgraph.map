@@ -1,0 +1,4 @@
+<map id="SimpleAI::Utilities::rand" name="SimpleAI::Utilities::rand">
+<area shape="rect" id="node1" title="Находит случайное значение в заданном диапазоне" alt="" coords="178,5,303,44"/>
+<area shape="rect" id="node2" href="$class_simple_a_i_1_1_utilities.html#a1e9c4fd2596da0df2ee2b37fb60009d7" title="Заполняет случайными занчениями матрицу" alt="" coords="5,5,130,44"/>
+</map>
