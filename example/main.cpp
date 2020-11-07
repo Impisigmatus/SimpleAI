@@ -21,7 +21,7 @@ int main()
     SimpleAI::Utilities::fillRand(weights);
   }
 
-  Teacher teacher(10000, 30, 0.1);
+  Teacher teacher(100, 30, 1);
   auto network = teacher.teach(weights);
   SimpleAI::Utilities::serialize(network->getWeights(), PATH);
 }

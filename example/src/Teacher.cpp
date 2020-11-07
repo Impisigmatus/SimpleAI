@@ -9,7 +9,7 @@ Teacher::Teacher(const size_t& iterations, const size_t& population, const doubl
   : ITeacher (iterations, population, step)
 {
   mActivation = [](const double& x) {
-    return 1 / (1 + exp(-x*10+5));
+    return 1 / (1 + exp(-x));
   };
 
   mInputs = {
@@ -81,10 +81,6 @@ Matrix Teacher::mutate(Matrix matrix, const double& step) const
 {
   const auto shift = [](double& weight, const double& step) {
     weight += step;
-    if (weight > 1)
-      weight = 1;
-    if (weight < 0)
-      weight = 0;
   };
 
   for (auto& list : matrix)

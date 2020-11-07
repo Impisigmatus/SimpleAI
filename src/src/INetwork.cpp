@@ -10,7 +10,7 @@ INetwork::INetwork(const Matrix& weights, const Activation& activation)
 List INetwork::exec(const List& inputs) const
 {
   List layer = inputs;
-  for (const auto& weightLayer : mWeightMatrix)
+  for (auto weightLayer : mWeightMatrix)
   {
     layer = multiply(layer, weightLayer);
     for (auto& output : layer)
