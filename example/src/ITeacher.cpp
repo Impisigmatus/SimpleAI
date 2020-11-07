@@ -21,25 +21,21 @@ std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
   {
     auto population = getPopulation(weights, step);
 
-    bool finded = false;
+    Student bestOfGen;
     for (const auto& student : population)
-      if (student.grade > best.grade)
-      {
-        best = student;
-        finded = true;
-        step = M_STEP;
-      }
+      if (student.grade > bestOfGen.grade)
+        bestOfGen = student;
 
-    if (!finded)
+    if (bestOfGen.grade > best.grade)
+    {
+      best = bestOfGen;
+      step = M_STEP;
+    }
+    else
       step += 0.1;
 
     weights = best.network->getWeights();
-
-    if (i % (M_ITERATIONS/10) == 0)
-    {
-      std::cout << i / (M_ITERATIONS/10) + 1 << ") ";
-      log(best);
-    }
+    log(best, i);
   }
 
   return best.network;

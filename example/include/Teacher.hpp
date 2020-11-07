@@ -11,9 +11,8 @@ public:
 private:
   Students getPopulation(const Matrix& weights, const double& step) const override;
   double grading(const std::shared_ptr<INetwork>& network) const override;
-  void log(const Student& student) const override;
+  void log(const Student& student, const size_t& i) const override;
 
-  double grading(const List& outputs, const size_t& answer) const;
   Matrix mutate (Matrix matrix, const double& step) const;
 
 private:

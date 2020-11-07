@@ -24,7 +24,7 @@ public:
 private:
   virtual Students getPopulation(const Matrix& weights, const double& step) const = 0;
   virtual double grading(const std::shared_ptr<INetwork>& network) const = 0;
-  virtual void log(const Student& student) const = 0;
+  virtual void log(const Student& student, const size_t& i) const = 0;
 
 protected:
   const size_t M_ITERATIONS;

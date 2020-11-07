@@ -36,53 +36,48 @@ Students Teacher::getPopulation(const Matrix& weights, const double& step) const
 
 double Teacher::grading(const std::shared_ptr<INetwork>& network) const
 {
+  const auto gradingOutput = [](const List& outputs, const size_t& answer) -> double {
+    double sum = 0;
+    for (const auto& output : outputs)
+      sum += output;
+    return outputs[answer]/sum;
+  };
+
   double grade = 0;
   for (size_t i = 0; i < mInputs.size(); i++)
-    grade += grading(network->exec(mInputs[i]), mAnswers[i]);
+    grade += gradingOutput(network->exec(mInputs[i]), mAnswers[i]);
   grade /= mInputs.size();
   return grade;
 }
 
-void Teacher::log(const Student& student) const
+void Teacher::log(const Student& student, const size_t& i) const
 {
-  std::cout << "Лучший студент: " << student.grade*100 << "%" << std::endl;
+  size_t part = M_ITERATIONS;
+  if (part > 10)
+    part /= 10;
 
-  List   data;
-  size_t out;
+  if (i % part != 0)
+    return;
 
-  data = student.network->exec({ 0, 0 });
-  out  = (data[0] > data[1] ? 0 : 1);
-  std::cout << "{ 0, 0 } = " << out << std::endl;
+  const auto toString = [](const List& input) {
+    std::string result = "{ ";
+    for (size_t i = 0; i < input.size(); i++)
+      result += std::to_string(static_cast<int>(input[i]))
+             +  (i+1 == input.size() ? " }" : ", ");
+    return result;
+  };
 
-  data = student.network->exec({ 1, 0 });
-  out  = (data[0] > data[1] ? 0 : 1);
-  std::cout << "{ 1, 0 } = " << out << std::endl;
+  std::cout << i / part + 1 << ") " << student.grade*100 << "% обученнности" << std::endl;
 
-  data = student.network->exec({ 0, 1 });
-  out  = (data[0] > data[1] ? 0 : 1);
-  std::cout << "{ 0, 1 } = " << out << std::endl;
-
-  data = student.network->exec({ 1, 1 });
-  out  = (data[0] > data[1] ? 0 : 1);
-  std::cout << "{ 1, 1 } = " << out << std::endl;
-}
-
-double Teacher::grading(const List& outputs, const size_t& answer) const
-{
-  double sum = 0;
-  for (const auto& output : outputs)
-    sum += output;
-  if (sum == 0.0)
-    return 0;
-  return outputs[answer]/sum;
+  for (const auto& input : mInputs)
+  {
+    auto data = student.network->exec(input);
+    std::cout << toString(input) << " = " << (data[0] > data[1] ? 0 : 1) << std::endl;
+  }
 }
 
 Matrix Teacher::mutate(Matrix matrix, const double& step) const
 {
-  const auto shift = [](double& weight, const double& step) {
-    weight += step;
-  };
-
   for (auto& list : matrix)
   {
     for (auto& weight : list)
