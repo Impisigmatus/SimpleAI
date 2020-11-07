@@ -22,6 +22,8 @@ public:
   std::shared_ptr<INetwork> teach(Matrix weights) const;
 
 private:
+  Student getBest(const Students& students) const;
+
   virtual Students getPopulation(const Matrix& weights, const double& step) const = 0;
   virtual double grading(const std::shared_ptr<INetwork>& network) const = 0;
   virtual void log(const Student& student, const size_t& i) const = 0;

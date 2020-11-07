@@ -19,13 +19,7 @@ std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
   double step = M_STEP;
   for (size_t i = 0; i < M_ITERATIONS; i++)
   {
-    auto population = getPopulation(weights, step);
-
-    Student bestOfGen;
-    for (const auto& student : population)
-      if (student.grade > bestOfGen.grade)
-        bestOfGen = student;
-
+    auto bestOfGen = getBest(getPopulation(weights, step));
     if (bestOfGen.grade > best.grade)
     {
       best = bestOfGen;
@@ -39,4 +33,13 @@ std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
   }
 
   return best.network;
+}
+
+Student ITeacher::getBest(const Students& students) const
+{
+  Student best;
+  for (const auto& student : students)
+    if (student.grade > best.grade)
+      best = student;
+  return best;
 }
