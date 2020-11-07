@@ -9,7 +9,7 @@ public:
   Teacher(const size_t& iterations, const size_t& population, const double& step);
 
 private:
-  Students getPopulation(const Matrix& weights) const override;
+  Students getPopulation(const Matrix& weights, const double& step) const override;
   double grading(const std::shared_ptr<INetwork>& network) const override;
   void log(const Student& student) const override;
 

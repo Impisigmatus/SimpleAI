@@ -18,16 +18,16 @@ Teacher::Teacher(const size_t& iterations, const size_t& population, const doubl
     { 1, 0 },
     { 1, 1 },
   };
-  mAnswers = { 1, 0, 0, 1};
+  mAnswers = { 1, 0, 0, 1 };
 }
 
-Students Teacher::getPopulation(const Matrix& weights) const
+Students Teacher::getPopulation(const Matrix& weights, const double& step) const
 {
   Students population(M_POPULATION);
 
   for (auto& student : population)
   {
-    student.network.reset(new Network(mutate(weights, M_STEP), mActivation));
+    student.network.reset(new Network(mutate(weights, step), mActivation));
     student.grade = grading(student.network);
   }
 
