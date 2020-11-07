@@ -35,11 +35,10 @@ std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
 
     weights = best.network->getWeights();
 
-    const size_t LOG_GEN = 10;
-    if (i % LOG_GEN == 0)
+    if (i % (M_ITERATIONS/10) == 0)
     {
-      std::cout << i / LOG_GEN + 1 << ") ";
-          log(best);
+      std::cout << i / (M_ITERATIONS/10) + 1 << ") ";
+      log(best);
     }
   }
 

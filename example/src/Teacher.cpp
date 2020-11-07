@@ -90,10 +90,10 @@ Matrix Teacher::mutate(Matrix matrix, const double& step) const
       switch (Utilities::rand(1, 3))
       {
         case 1:
-          shift(weight, step);
+          weight += step;
           break;
         case 2:
-          shift(weight, -step);
+          weight -= step;
           break;
         default:
           break;
