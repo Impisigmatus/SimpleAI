@@ -31,10 +31,17 @@ Matrix Utilities::deserialize(const std::string& path)
   return weights;
 }
 
-void Utilities::fillRand(Matrix& matrix)
+Matrix Utilities::makeMatrix(const std::vector<size_t>& size)
 {
-  for (auto& list : matrix)
-    std::generate(list.begin(), list.end(), []() { return rand(); });
+  Matrix result;
+  for (size_t i = 0; i < size.size()-1; i++)
+  {
+    List layer(size[i]*size[i+1]);
+    for (auto& weight : layer)
+      weight = rand();
+    result.push_back(layer);
+  }
+  return result;
 }
 
 double Utilities::rand(const double& begin, const double& end)
