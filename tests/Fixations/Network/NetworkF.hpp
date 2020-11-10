@@ -1,7 +1,7 @@
 #ifndef SAI_TESTS_NETWORK_F_HPP
 #define SAI_TESTS_NETWORK_F_HPP
 
-#include <SimpleAI/INetwork.hpp>
+#include <SimpleAI/AbstractNetwork.hpp>
 
 #include <gtest/gtest.h>
 

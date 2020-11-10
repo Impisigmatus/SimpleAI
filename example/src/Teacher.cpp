@@ -34,7 +34,7 @@ Students Teacher::getPopulation(const Matrix& weights, const double& step) const
   return population;
 }
 
-double Teacher::grading(const std::shared_ptr<INetwork>& network) const
+double Teacher::grading(const std::shared_ptr<AbstractNetwork>& network) const
 {
   const auto gradingOutput = [](const List& outputs, const size_t& answer) -> double {
     double sum = 0;

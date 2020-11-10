@@ -1,13 +1,13 @@
-#include <INetwork.hpp>
+#include <AbstractNetwork.hpp>
 
 namespace SimpleAI {
 
-INetwork::INetwork(const Matrix& weights, const Activation& activation)
+AbstractNetwork::AbstractNetwork(const Matrix& weights, const Activation& activation)
   : mActivation   (activation)
   , mWeightMatrix (weights)
 {}
 
-List INetwork::exec(const List& inputs) const
+List AbstractNetwork::exec(const List& inputs) const
 {
   List layer = inputs;
   for (const auto& weightLayer : mWeightMatrix)
@@ -19,7 +19,7 @@ List INetwork::exec(const List& inputs) const
   return layer;
 }
 
-Matrix INetwork::getWeights() const
+Matrix AbstractNetwork::getWeights() const
 {
   return mWeightMatrix;
 }

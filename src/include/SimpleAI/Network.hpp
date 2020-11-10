@@ -1,12 +1,12 @@
 #ifndef SAI_NETWORK_HPP
 #define SAI_NETWORK_HPP
 
-#include <SimpleAI/INetwork.hpp>
+#include <SimpleAI/AbstractNetwork.hpp>
 
 namespace SimpleAI {
 
 //! \brief Реализация для работы нейросети на базе библиотеки OpenBLAS
-class Network : public INetwork
+class Network : public AbstractNetwork
 {
 public:
   Network(const Matrix& weights, const Activation& activation);

@@ -10,7 +10,7 @@ ITeacher::ITeacher(const size_t& iterations, const size_t& population, const dou
   , M_STEP       (step)
 {}
 
-std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
+std::shared_ptr<AbstractNetwork> ITeacher::teach(Matrix weights) const
 {
   Student best;
   best.network.reset(new Network(weights, mActivation));
