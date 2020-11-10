@@ -6,7 +6,7 @@
 #include <iostream>
 
 Teacher::Teacher(const size_t& iterations, const size_t& population, const double& step)
-  : ITeacher (iterations, population, step)
+  : AbstractTeacher (iterations, population, step)
 {
   mActivation = [](const double& x) {
     return 1 / (1 + exp(-x));
@@ -34,7 +34,7 @@ Students Teacher::getPopulation(const Matrix& weights, const double& step) const
   return population;
 }
 
-double Teacher::grading(const std::shared_ptr<INetwork>& network) const
+double Teacher::grading(const std::shared_ptr<AbstractNetwork>& network) const
 {
   const auto gradingOutput = [](const List& outputs, const size_t& answer) -> double {
     double sum = 0;

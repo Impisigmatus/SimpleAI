@@ -22,3 +22,8 @@ target_include_directories(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/Fixations
     ${GTEST_INCLUDE_DIRS}
 )
+
+# Копируем ассеты в папку билда
+file(GLOB_RECURSE ASSETS "${CMAKE_CURRENT_SOURCE_DIR}/Assets/*")
+file(COPY ${ASSETS} DESTINATION ${CMAKE_BINARY_DIR}/Assets)
+add_definitions(-DASSETS_PATH=\"${CMAKE_BINARY_DIR}/Assets/\")

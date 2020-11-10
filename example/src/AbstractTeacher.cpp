@@ -1,16 +1,18 @@
-#include <ITeacher.hpp>
+#include <AbstractTeacher.hpp>
 
 #include <SimpleAI/Network.hpp>
 
 #include <iostream>
 
-ITeacher::ITeacher(const size_t& iterations, const size_t& population, const double& step)
+AbstractTeacher::AbstractTeacher(const size_t& iterations,
+                                 const size_t& population,
+                                 const double& step)
   : M_ITERATIONS (iterations)
   , M_POPULATION (population)
   , M_STEP       (step)
 {}
 
-std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
+std::shared_ptr<AbstractNetwork> AbstractTeacher::teach(Matrix weights) const
 {
   Student best;
   best.network.reset(new Network(weights, mActivation));
@@ -35,7 +37,7 @@ std::shared_ptr<INetwork> ITeacher::teach(Matrix weights) const
   return best.network;
 }
 
-Student ITeacher::getBest(const Students& students) const
+Student AbstractTeacher::getBest(const Students& students) const
 {
   Student best;
   for (const auto& student : students)
