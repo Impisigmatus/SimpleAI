@@ -22,11 +22,10 @@ public:
   std::shared_ptr<AbstractNetwork> teach(Matrix weights) const;
 
 private:
-  Student getBest(const Students& students) const;
+  Student getBest(const Matrix& weights, const double& step) const;
 
-  virtual Students getPopulation(const Matrix& weights, const double& step) const = 0;
+  virtual std::shared_ptr<AbstractNetwork> makeNetwork(const Matrix& weights, const double& step) const = 0;
   virtual double grading(const std::shared_ptr<AbstractNetwork>& network) const = 0;
-  virtual void log(const Student& student, const size_t& i) const = 0;
 
 protected:
   const size_t M_ITERATIONS;

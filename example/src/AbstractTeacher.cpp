@@ -21,27 +21,33 @@ std::shared_ptr<AbstractNetwork> AbstractTeacher::teach(Matrix weights) const
   double step = M_STEP;
   for (size_t i = 0; i < M_ITERATIONS; i++)
   {
-    auto bestOfGen = getBest(getPopulation(weights, step));
+    auto bestOfGen = getBest(weights, step);
     if (bestOfGen.grade > best.grade)
     {
       best = bestOfGen;
       step = M_STEP;
+      std::cout << "Найден уникум " << best.grade * 100 << '%' << std::endl;
     }
     else
       step += 0.1;
 
     weights = best.network->getWeights();
-    log(best, i);
   }
 
   return best.network;
 }
 
-Student AbstractTeacher::getBest(const Students& students) const
+Student AbstractTeacher::getBest(const Matrix& weights, const double& step) const
 {
+  Students students(M_POPULATION);
+
   Student best;
-  for (const auto& student : students)
+  for (auto& student : students)
+  {
+    student.network = makeNetwork(weights, step);
+    student.grade = grading(student.network);
     if (student.grade > best.grade)
       best = student;
+  }
   return best;
 }

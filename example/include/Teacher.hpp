@@ -6,12 +6,15 @@
 class Teacher : public AbstractTeacher
 {
 public:
-  Teacher(const size_t& iterations, const size_t& population, const double& step);
+  Teacher(const Matrix&              inputs,
+          const std::vector<size_t>& answers,
+          const size_t&              iterations,
+          const size_t&              population,
+          const double&              step);
 
 private:
-  Students getPopulation(const Matrix& weights, const double& step) const override;
+  std::shared_ptr<AbstractNetwork> makeNetwork(const Matrix& weights, const double& step) const override;
   double grading(const std::shared_ptr<AbstractNetwork>& network) const override;
-  void log(const Student& student, const size_t& i) const override;
 
   Matrix mutate (Matrix matrix, const double& step) const;
 
