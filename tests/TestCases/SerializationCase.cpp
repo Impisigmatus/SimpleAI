@@ -3,6 +3,7 @@
 #include <SimpleAI/Utilities.hpp>
 
 #include <fstream>
+#include <sstream>
 
 TEST(SerializationCase, Serialize)
 {
@@ -22,12 +23,25 @@ TEST(SerializationCase, Serialize)
 
   EXPECT_TRUE(SimpleAI::Utilities::serialize(weights, PATH));
 
-  std::fstream fout(PATH);
+  std::fstream fout;
+  // Читаем сериализованные данные
+  std::stringstream result;
+  fout.open(PATH);
   if (!fout.is_open())
     FAIL();
-
-  // Прочитать и сравнить
+  result << fout.rdbuf();
   fout.close();
+
+  // Читаем ассет
+  std::stringstream expected;
+  fout.open(std::string(ASSETS_PATH) + PATH);
+  if (!fout.is_open())
+    FAIL();
+  expected << fout.rdbuf();
+  fout.close();
+
+  // Сравниваем
+  EXPECT_EQ(result.str(), expected.str());
 }
 
 TEST(SerializationCase, Deserialize)
