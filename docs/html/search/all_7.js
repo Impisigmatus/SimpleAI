@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['mactivation_7',['mActivation',['../class_simple_a_i_1_1_i_network.html#ab8d010102b00a0975d0b786f30ff0d93',1,'SimpleAI::INetwork']]],
-  ['matrix_8',['Matrix',['../class_simple_a_i_1_1_matrix.html',1,'SimpleAI::Matrix'],['../class_simple_a_i_1_1_matrix.html#a0597d92584258f2f96945e467b307bc6',1,'SimpleAI::Matrix::Matrix()'],['../class_simple_a_i_1_1_matrix.html#a79bc63325c30c5e5725152dbfbcef3ac',1,'SimpleAI::Matrix::Matrix(const std::initializer_list&lt; List &gt; &amp;list)']]],
-  ['mgenerator_9',['mGenerator',['../class_simple_a_i_1_1_utilities.html#a52b0eb54f5ef017cba5931bab20424c7',1,'SimpleAI::Utilities']]],
-  ['mrandom_10',['mRandom',['../class_simple_a_i_1_1_utilities.html#ae5d7684f69da9fe3e4c454aa3a07fbb5',1,'SimpleAI::Utilities']]],
-  ['multiply_11',['multiply',['../class_simple_a_i_1_1_i_network.html#ab0a21c7360b80098301ce5795fd5e714',1,'SimpleAI::INetwork::multiply()'],['../class_simple_a_i_1_1_network.html#a34eefe75490596e50d4754d58e85917f',1,'SimpleAI::Network::multiply()']]],
-  ['mweightmatrix_12',['mWeightMatrix',['../class_simple_a_i_1_1_i_network.html#af0eb1a8c43fe2e6a640a9bc8b385062a',1,'SimpleAI::INetwork']]]
+  ['operator_3c_3c_14',['operator&lt;&lt;',['../class_simple_a_i_1_1_list.html#abe18c26e3d50973058c851f70186bc00',1,'SimpleAI::List::operator&lt;&lt;()'],['../class_simple_a_i_1_1_matrix.html#a049990a80e6662c383726b1a1c840df7',1,'SimpleAI::Matrix::operator&lt;&lt;()'],['../namespace_simple_a_i.html#a2e2efdf717f1de455d4b191054e1ce3e',1,'SimpleAI::operator&lt;&lt;(std::ostream &amp;stream, const List &amp;list)'],['../namespace_simple_a_i.html#af8b7c168128b56f3540c65712635a32a',1,'SimpleAI::operator&lt;&lt;(std::ostream &amp;stream, const Matrix &amp;matrix)']]],
+  ['operator_3e_3e_15',['operator&gt;&gt;',['../class_simple_a_i_1_1_list.html#a3796af27f37efd8fdcf70abe8eeeb9fd',1,'SimpleAI::List::operator&gt;&gt;()'],['../class_simple_a_i_1_1_matrix.html#a37293d79d17d0c1efe8de1ce4b0c758a',1,'SimpleAI::Matrix::operator&gt;&gt;()'],['../namespace_simple_a_i.html#a5b02c98f25d5d8fe23aa475679ba3c08',1,'SimpleAI::operator&gt;&gt;(std::istream &amp;stream, List &amp;list)'],['../namespace_simple_a_i.html#a4fd1af6b90ce86a629548ecb9b7db6e0',1,'SimpleAI::operator&gt;&gt;(std::istream &amp;stream, Matrix &amp;matrix)']]]
 ];

@@ -1,0 +1,5 @@
+<map id="SimpleAI::AbstractNetwork" name="SimpleAI::AbstractNetwork">
+<area shape="rect" id="node1" title="Интерфейс для работы нейросети" alt="" coords="5,167,185,192"/>
+<area shape="rect" id="node2" href="$class_simple_a_i_1_1_matrix.html" title="Класс матрицы" alt="" coords="36,80,154,105"/>
+<area shape="rect" id="node3" title=" " alt="" coords="32,5,159,31"/>
+</map>

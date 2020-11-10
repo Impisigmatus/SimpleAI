@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getweights_30',['getWeights',['../class_simple_a_i_1_1_i_network.html#a19f952628923c82781934ffb21ef0ecf',1,'SimpleAI::INetwork']]]
+  ['getweights_30',['getWeights',['../class_simple_a_i_1_1_abstract_network.html#a4dcfde8c9794b6a5f76e801cc706d96f',1,'SimpleAI::AbstractNetwork']]]
 ];

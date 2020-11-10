@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deserialize_27',['deserialize',['../class_simple_a_i_1_1_utilities.html#a33ffdf25f2a26ecceb15ac03afac6013',1,'SimpleAI::Utilities']]]
+  ['abstractnetwork_27',['AbstractNetwork',['../class_simple_a_i_1_1_abstract_network.html#aeb2296b0dce576142918bdf6ea076ffb',1,'SimpleAI::AbstractNetwork']]]
 ];

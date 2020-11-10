@@ -1,0 +1,4 @@
+<map id="SimpleAI::AbstractNetwork::multiply" name="SimpleAI::AbstractNetwork::multiply">
+<area shape="rect" id="node1" title="Метод для перемножения выходных значенинй предыдущего слоя на весовые коэффициенты" alt="" coords="233,5,413,44"/>
+<area shape="rect" id="node2" href="$class_simple_a_i_1_1_abstract_network.html#aef06efb339c312c57e5f3fde64d68974" title="Производит вычисление весов выходного слоя" alt="" coords="5,5,185,44"/>
+</map>

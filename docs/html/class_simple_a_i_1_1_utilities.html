@@ -108,9 +108,9 @@ $(document).ready(function(){initNavTree('class_simple_a_i_1_1_utilities.html','
 <tr class="memitem:a33ffdf25f2a26ecceb15ac03afac6013"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_simple_a_i_1_1_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_a_i_1_1_utilities.html#a33ffdf25f2a26ecceb15ac03afac6013">deserialize</a> (const std::string &amp;path)</td></tr>
 <tr class="memdesc:a33ffdf25f2a26ecceb15ac03afac6013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Читает матрицу весов из файла  <a href="class_simple_a_i_1_1_utilities.html#a33ffdf25f2a26ecceb15ac03afac6013">Подробнее...</a><br /></td></tr>
 <tr class="separator:a33ffdf25f2a26ecceb15ac03afac6013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9c4fd2596da0df2ee2b37fb60009d7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_a_i_1_1_utilities.html#a1e9c4fd2596da0df2ee2b37fb60009d7">fillRand</a> (<a class="el" href="class_simple_a_i_1_1_matrix.html">Matrix</a> &amp;matrix)</td></tr>
-<tr class="memdesc:a1e9c4fd2596da0df2ee2b37fb60009d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Заполняет случайными занчениями матрицу  <a href="class_simple_a_i_1_1_utilities.html#a1e9c4fd2596da0df2ee2b37fb60009d7">Подробнее...</a><br /></td></tr>
-<tr class="separator:a1e9c4fd2596da0df2ee2b37fb60009d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c8b27b3ce45a9b92a3b4338db3c0939"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_simple_a_i_1_1_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_a_i_1_1_utilities.html#a8c8b27b3ce45a9b92a3b4338db3c0939">makeMatrix</a> (const std::vector&lt; size_t &gt; &amp;size)</td></tr>
+<tr class="memdesc:a8c8b27b3ce45a9b92a3b4338db3c0939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает матрицу весов с заданным размером слоев случайными занчениями  <a href="class_simple_a_i_1_1_utilities.html#a8c8b27b3ce45a9b92a3b4338db3c0939">Подробнее...</a><br /></td></tr>
+<tr class="separator:a8c8b27b3ce45a9b92a3b4338db3c0939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bb160d21944ec229ad1bb240ce3f6f7"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_a_i_1_1_utilities.html#a4bb160d21944ec229ad1bb240ce3f6f7">rand</a> (const double &amp;begin=0, const double &amp;end=1)</td></tr>
 <tr class="memdesc:a4bb160d21944ec229ad1bb240ce3f6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Находит случайное значение в заданном диапазоне  <a href="class_simple_a_i_1_1_utilities.html#a4bb160d21944ec229ad1bb240ce3f6f7">Подробнее...</a><br /></td></tr>
 <tr class="separator:a4bb160d21944ec229ad1bb240ce3f6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,8 +162,8 @@ $(document).ready(function(){initNavTree('class_simple_a_i_1_1_utilities.html','
 
 </div>
 </div>
-<a id="a1e9c4fd2596da0df2ee2b37fb60009d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e9c4fd2596da0df2ee2b37fb60009d7">&#9670;&nbsp;</a></span>fillRand()</h2>
+<a id="a8c8b27b3ce45a9b92a3b4338db3c0939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c8b27b3ce45a9b92a3b4338db3c0939">&#9670;&nbsp;</a></span>makeMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,10 +172,10 @@ $(document).ready(function(){initNavTree('class_simple_a_i_1_1_utilities.html','
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SimpleAI::Utilities::fillRand </td>
+          <td class="memname"><a class="el" href="class_simple_a_i_1_1_matrix.html">Matrix</a> SimpleAI::Utilities::makeMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_simple_a_i_1_1_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -186,19 +186,20 @@ $(document).ready(function(){initNavTree('class_simple_a_i_1_1_utilities.html','
 </table>
 </div><div class="memdoc">
 
-<p>Заполняет случайными занчениями матрицу </p>
-<p>Заполняет случайными значениями только те элементы, под которые выделена память (изменяет существующие значения на случайные) </p><dl class="params"><dt>Аргументы</dt><dd>
+<p>Создает матрицу весов с заданным размером слоев случайными занчениями </p>
+<dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">matrix</td><td>Ссылка на матрицу, которой надо расставить случайные значениня </td></tr>
+    <tr><td class="paramname">size</td><td>Размеры матрицы, где длина вектора это кол-во слоев, а значение элементов это кол-во нейронов в слое </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Возвращает</dt><dd><a class="el" href="class_simple_a_i_1_1_matrix.html" title="Класс матрицы">SimpleAI::Matrix</a> Созданная матрица </dd></dl>
 <div class="dynheader">
 Граф вызовов:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_simple_a_i_1_1_utilities_a1e9c4fd2596da0df2ee2b37fb60009d7_cgraph.png" border="0" usemap="#class_simple_a_i_1_1_utilities_a1e9c4fd2596da0df2ee2b37fb60009d7_cgraph" alt=""/></div>
-<map name="class_simple_a_i_1_1_utilities_a1e9c4fd2596da0df2ee2b37fb60009d7_cgraph" id="class_simple_a_i_1_1_utilities_a1e9c4fd2596da0df2ee2b37fb60009d7_cgraph">
-<area shape="rect" title="Заполняет случайными занчениями матрицу" alt="" coords="5,5,130,44"/>
+<div class="center"><img src="class_simple_a_i_1_1_utilities_a8c8b27b3ce45a9b92a3b4338db3c0939_cgraph.png" border="0" usemap="#class_simple_a_i_1_1_utilities_a8c8b27b3ce45a9b92a3b4338db3c0939_cgraph" alt=""/></div>
+<map name="class_simple_a_i_1_1_utilities_a8c8b27b3ce45a9b92a3b4338db3c0939_cgraph" id="class_simple_a_i_1_1_utilities_a8c8b27b3ce45a9b92a3b4338db3c0939_cgraph">
+<area shape="rect" title="Создает матрицу весов с заданным размером слоев случайными занчениями" alt="" coords="5,5,130,44"/>
 <area shape="rect" href="class_simple_a_i_1_1_utilities.html#a4bb160d21944ec229ad1bb240ce3f6f7" title="Находит случайное значение в заданном диапазоне" alt="" coords="178,5,303,44"/>
 </map>
 </div>
@@ -254,7 +255,7 @@ $(document).ready(function(){initNavTree('class_simple_a_i_1_1_utilities.html','
 <div class="center"><img src="class_simple_a_i_1_1_utilities_a4bb160d21944ec229ad1bb240ce3f6f7_icgraph.png" border="0" usemap="#class_simple_a_i_1_1_utilities_a4bb160d21944ec229ad1bb240ce3f6f7_icgraph" alt=""/></div>
 <map name="class_simple_a_i_1_1_utilities_a4bb160d21944ec229ad1bb240ce3f6f7_icgraph" id="class_simple_a_i_1_1_utilities_a4bb160d21944ec229ad1bb240ce3f6f7_icgraph">
 <area shape="rect" title="Находит случайное значение в заданном диапазоне" alt="" coords="178,5,303,44"/>
-<area shape="rect" href="class_simple_a_i_1_1_utilities.html#a1e9c4fd2596da0df2ee2b37fb60009d7" title="Заполняет случайными занчениями матрицу" alt="" coords="5,5,130,44"/>
+<area shape="rect" href="class_simple_a_i_1_1_utilities.html#a8c8b27b3ce45a9b92a3b4338db3c0939" title="Создает матрицу весов с заданным размером слоев случайными занчениями" alt="" coords="5,5,130,44"/>
 </map>
 </div>
 
