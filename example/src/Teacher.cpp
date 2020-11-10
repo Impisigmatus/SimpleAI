@@ -6,7 +6,7 @@
 #include <iostream>
 
 Teacher::Teacher(const size_t& iterations, const size_t& population, const double& step)
-  : ITeacher (iterations, population, step)
+  : AbstractTeacher (iterations, population, step)
 {
   mActivation = [](const double& x) {
     return 1 / (1 + exp(-x));

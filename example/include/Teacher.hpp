@@ -1,9 +1,9 @@
 #ifndef SAI_EXAMPLE_TEACHER_HPP
 #define SAI_EXAMPLE_TEACHER_HPP
 
-#include <ITeacher.hpp>
+#include <AbstractTeacher.hpp>
 
-class Teacher : public ITeacher
+class Teacher : public AbstractTeacher
 {
 public:
   Teacher(const size_t& iterations, const size_t& population, const double& step);

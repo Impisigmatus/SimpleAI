@@ -1,5 +1,5 @@
-#ifndef SAI_EXAMPLE_ITEACHER_HPP
-#define SAI_EXAMPLE_ITEACHER_HPP
+#ifndef SAI_EXAMPLE_ABSTRACT_TEACHER_HPP
+#define SAI_EXAMPLE_ABSTRACT_TEACHER_HPP
 
 #include <SimpleAI/AbstractNetwork.hpp>
 
@@ -13,11 +13,11 @@ struct Student
 
 using Students = std::vector<Student>;
 
-class ITeacher
+class AbstractTeacher
 {
 public:
-  ITeacher(const size_t& iterations, const size_t& population, const double& step);
-  virtual ~ITeacher() = default;
+  AbstractTeacher(const size_t& iterations, const size_t& population, const double& step);
+  virtual ~AbstractTeacher() = default;
 
   std::shared_ptr<AbstractNetwork> teach(Matrix weights) const;
 
@@ -37,4 +37,4 @@ protected:
 
 };
 
-#endif // SAI_EXAMPLE_ITEACHER_HPP
+#endif // SAI_EXAMPLE_ABSTRACT_TEACHER_HPP
