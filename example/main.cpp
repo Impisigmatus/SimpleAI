@@ -2,26 +2,42 @@
 
 #include <SimpleAI/Utilities.hpp>
 
+#include <iostream>
+
 int main()
 {
+  // Исходные данные
   const std::string PATH   = "example_network";
+  SimpleAI::Matrix inputs = {
+    { 0, 0 },
+    { 0, 1 },
+    { 1, 0 },
+    { 1, 1 },
+  };
+  std::vector<size_t> answers = { 1, 0, 0, 1 };
+
+  // Создание матрицы
   SimpleAI::Matrix weights = SimpleAI::Utilities::deserialize(PATH);
   if (weights.empty())
-  {
-    weights.push_back({
-      0.5, 0.5, 0.5, 0.5, // 1 слой 1 нейрон => 4 нейрона 2 слоя
-      0.5, 0.5, 0.5, 0.5  // 1 слой 2 нейрон => 4 нейрона 2 слоя
-    });
-    weights.push_back({
-      0.5, 0.5, // 2 слой 1 нейрон => 2 нейрона 3 слоя
-      0.5, 0.5, // 2 слой 2 нейрон => 2 нейрона 3 слоя
-      0.5, 0.5, // 2 слой 3 нейрон => 2 нейрона 3 слоя
-      0.5, 0.5  // 2 слой 4 нейрон => 2 нейрона 3 слоя
-    });
-    SimpleAI::Utilities::fillRand(weights);
-  }
+    weights = SimpleAI::Utilities::makeMatrix({ 2, 4, 2 });
 
-  Teacher teacher(100, 30, 1);
+  // Обучение
+  Teacher teacher(inputs, answers, 100, 30, 1);
   auto network = teacher.teach(weights);
   SimpleAI::Utilities::serialize(network->getWeights(), PATH);
+
+  // Вывод результатов работы
+  const auto toString = [](const List& input) {
+    std::string result = "{ ";
+    for (size_t i = 0; i < input.size(); i++)
+      result += std::to_string(static_cast<int>(input[i]))
+             +  (i+1 == input.size() ? " }" : ", ");
+    return result;
+  };
+
+  for (const auto& input : inputs)
+  {
+    auto data = network->exec(input);
+    std::cout << toString(input) << " = " << (data[0] > data[1] ? 0 : 1) << std::endl;
+  }
 }

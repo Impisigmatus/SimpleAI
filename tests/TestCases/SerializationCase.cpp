@@ -2,10 +2,13 @@
 
 #include <SimpleAI/Utilities.hpp>
 
-const std::string PATH = "serialization_test_network";
+#include <fstream>
+#include <sstream>
 
 TEST(SerializationCase, Serialize)
 {
+  const std::string PATH = "Serialize_test";
+
   SimpleAI::Matrix weights;
   weights.push_back({
     1.1, 1.2, 1.3, 1.4,
@@ -19,10 +22,32 @@ TEST(SerializationCase, Serialize)
   });
 
   EXPECT_TRUE(SimpleAI::Utilities::serialize(weights, PATH));
+
+  std::fstream fout;
+  // Читаем сериализованные данные
+  std::stringstream result;
+  fout.open(PATH);
+  if (!fout.is_open())
+    FAIL();
+  result << fout.rdbuf();
+  fout.close();
+
+  // Читаем ассет
+  std::stringstream expected;
+  fout.open(std::string(ASSETS_PATH) + PATH);
+  if (!fout.is_open())
+    FAIL();
+  expected << fout.rdbuf();
+  fout.close();
+
+  // Сравниваем
+  EXPECT_EQ(result.str(), expected.str());
 }
 
 TEST(SerializationCase, Deserialize)
 {
+  const std::string PATH = std::string(ASSETS_PATH) + "Deserialize_test";
+
   SimpleAI::Matrix weights = SimpleAI::Utilities::deserialize(PATH);
   SimpleAI::Matrix expected;
   expected.push_back({

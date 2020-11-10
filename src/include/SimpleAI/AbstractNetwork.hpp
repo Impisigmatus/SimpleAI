@@ -1,5 +1,5 @@
-#ifndef SAI_INETWORK_HPP
-#define SAI_INETWORK_HPP
+#ifndef SAI_ABSTRACT_NETWORK_HPP
+#define SAI_ABSTRACT_NETWORK_HPP
 
 #include <SimpleAI/Domains/Matrix.hpp>
 
@@ -9,7 +9,7 @@ namespace SimpleAI {
 using Activation = std::function<double(const double& x)>;
 
 //! \brief Интерфейс для работы нейросети
-class INetwork
+class AbstractNetwork
 {
 public:
   /*!
@@ -18,10 +18,10 @@ public:
    * \param weights Весовыве коэффициенты
    * \param foo Функция активации
    */
-  INetwork(const Matrix& weights, const Activation& activation);
+  AbstractNetwork(const Matrix& weights, const Activation& activation);
 
   //! \brief Деструктор по-умолчанию
-  virtual ~INetwork() = default;
+  virtual ~AbstractNetwork() = default;
 
   /*!
    * \brief Производит вычисление весов выходного слоя
@@ -59,4 +59,4 @@ private:
 
 } // namespace SimpleAI
 
-#endif // SAI_INETWORK_HPP
+#endif // SAI_ABSTRACT_NETWORK_HPP

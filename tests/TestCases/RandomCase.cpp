@@ -78,16 +78,3 @@ TEST(RandomCase, IntNegative)
   EXPECT_GE(b, begin);
   EXPECT_LE(b, end);
 }
-
-TEST(RandomCase, FillRand)
-{
-  SimpleAI::Matrix matrix = {
-    { 1.1, 1.2, 1.3 },
-    { 2.1, 2.2, 2.3 },
-    { 3.1, 3.2, 3.3 }
-  };
-  auto copy = matrix;
-
-  SimpleAI::Utilities::fillRand(matrix);
-  EXPECT_NE(matrix, copy);
-}

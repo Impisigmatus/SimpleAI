@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['list_32',['List',['../class_simple_a_i_1_1_list.html#af18c430833f8658a3387ffdb48539a29',1,'SimpleAI::List::List()'],['../class_simple_a_i_1_1_list.html#aa34a56c4047937ef44d95921280434f5',1,'SimpleAI::List::List(const size_t &amp;size)'],['../class_simple_a_i_1_1_list.html#a2739dd2a94a60601c7f89a2a8f494eb7',1,'SimpleAI::List::List(const std::initializer_list&lt; double &gt; &amp;list)']]]
+  ['makematrix_32',['makeMatrix',['../class_simple_a_i_1_1_utilities.html#a8c8b27b3ce45a9b92a3b4338db3c0939',1,'SimpleAI::Utilities']]],
+  ['matrix_33',['Matrix',['../class_simple_a_i_1_1_matrix.html#a0597d92584258f2f96945e467b307bc6',1,'SimpleAI::Matrix::Matrix()'],['../class_simple_a_i_1_1_matrix.html#a79bc63325c30c5e5725152dbfbcef3ac',1,'SimpleAI::Matrix::Matrix(const std::initializer_list&lt; List &gt; &amp;list)']]],
+  ['multiply_34',['multiply',['../class_simple_a_i_1_1_abstract_network.html#a411e87f0c9db828d484346ea2c744d56',1,'SimpleAI::AbstractNetwork::multiply()'],['../class_simple_a_i_1_1_network.html#a34eefe75490596e50d4754d58e85917f',1,'SimpleAI::Network::multiply()']]]
 ];
